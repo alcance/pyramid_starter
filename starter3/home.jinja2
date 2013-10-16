@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Starter: {{ name }}</title>
+    <title>Starter: {{ page_title }}</title>
+    <link rel="stylesheet"
+          href="{{ request.static_url('starter3:static/bootstrap.css') }}"/>
     <link rel="stylesheet"
           href="{{ request.static_url('starter3:static/bootstrap.css') }}"/>
     <link rel="stylesheet"
@@ -10,7 +12,7 @@
 <body>
 
 <div class="container">
-    <h1>{{ name }}</h1>
+    <h1>{{ page_title }}</h1>
 
     <p>
         Output: <code id="output">00000</code>

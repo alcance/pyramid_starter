@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Starter: {{ name }}</title>
+    {% block head_more %}
+    {% endblock head_more %}
+    <link rel="stylesheet"
+          href="{{ request.static_url('starter4:static/bootstrap.css') }}"/>
+    <link rel="stylesheet"
+          href="{{ request.static_url('starter4:static/app.css') }}"/>
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ name }}</h1>
+
+    {% block content %}
+    {% endblock content %}
+
+</div>
+
+</body>
+</html>

@@ -16,7 +16,7 @@ class TutorialViewTests(unittest.TestCase):
         request = testing.DummyRequest()
         inst = StarterViews(request)
         result = inst.home()
-        self.assertEqual('Home View', result['name'])
+        self.assertEqual('Home View', result['page_title'])
 
     def test_output(self):
         from .views import StarterViews

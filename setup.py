@@ -4,6 +4,7 @@ requires = [
     'pyramid',
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
+    'deform',
     'nose',
     'WebTest'
 ]
@@ -18,4 +19,5 @@ setup(
       [paste.app_factory]
       starter2 = starter2:main
       starter3 = starter3:main
+      starter4 = starter4:main
       """)

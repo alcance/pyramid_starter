@@ -1,0 +1,25 @@
+{% extends "templates/layout.jinja2" %}
+
+{% block head_more %}
+    <link rel="stylesheet"
+          href="{{ request.static_url('deform:static/css/bootstrap.min.css') }}"/>
+    {% for reqt in view.reqts['css'] %}
+        <link rel="stylesheet" type="text/css"
+              href="{{ request.static_url('deform:static/' + reqt) }}"/>
+    {% endfor %}
+    {% for reqt in view.reqts['js'] %}
+        <script src="{{ request.static_url('deform:static/' + reqt) }}"
+                type="text/javascript"></script>
+    {% endfor %}
+{% endblock head_more %}
+{% block content %}
+
+
+    <h1>WikiPage; Add/Edit</h1>
+
+    <p>{{ form | safe }}</p>
+    <script type="text/javascript">
+        deform.load()
+    </script>
+
+{% endblock content %}

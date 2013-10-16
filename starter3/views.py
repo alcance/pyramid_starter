@@ -9,7 +9,7 @@ class StarterViews:
 
     @view_config(route_name='home', renderer='home.jinja2')
     def home(self):
-        return dict(name='Home View')
+        return dict(page_title='Home View')
 
     @view_config(route_name='output', renderer='json')
     def output(self):
