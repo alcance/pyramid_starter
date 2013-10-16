@@ -8,3 +8,5 @@ env*/
 sqltutorial.sqlite
 tmp
 Data.*
+.idea/*
+!.idea/runConfigurations/*
