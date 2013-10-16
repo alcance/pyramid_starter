@@ -14,6 +14,6 @@ setup(
     description='Set of starter packages for the Pyramid web framework',
     entry_points="""\
       [paste.app_factory]
-      sample1 = sample1:main
-      sample2 = sample2:main
+      starter1 = starter1:main
+      starter2 = starter2:main
       """)
