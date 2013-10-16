@@ -3,7 +3,9 @@ from setuptools import setup
 requires = [
     'pyramid',
     'pyramid_jinja2',
-    'pyramid_debugtoolbar'
+    'pyramid_debugtoolbar',
+    'nose',
+    'WebTest'
 ]
 
 setup(
@@ -14,6 +16,5 @@ setup(
     description='Set of starter packages for the Pyramid web framework',
     entry_points="""\
       [paste.app_factory]
-      starter1 = starter1:main
       starter2 = starter2:main
       """)

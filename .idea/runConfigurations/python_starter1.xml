@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="pserve starter1" type="Python.PyramidServer" factoryName="Pyramid server">
+  <configuration default="false" name="python starter1" type="PythonConfigurationType" factoryName="Python" singleton="true">
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
@@ -12,10 +12,8 @@
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <module name="pyramid_starter" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-    <option name="launchJavascriptDebuger" value="false" />
-    <option name="additionalOptions" value="--reload" />
-    <option name="browserUrl" value="" />
-    <option name="CONFIGURATION_FILE" value="$PROJECT_DIR$/starter1/development.ini" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/starter1/__init__.py" />
+    <option name="PARAMETERS" value="" />
     <RunnerSettings RunnerId="PythonRunner" />
     <ConfigurationWrapper RunnerId="PythonRunner" />
     <method />
