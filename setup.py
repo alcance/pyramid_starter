@@ -17,4 +17,5 @@ setup(
     entry_points="""\
       [paste.app_factory]
       starter2 = starter2:main
+      starter3 = starter3:main
       """)

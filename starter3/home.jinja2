@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Starter: {{ name }}</title>
+    <link rel="stylesheet"
+          href="{{ request.static_url('starter3:static/bootstrap.css') }}"/>
+    <link rel="stylesheet"
+          href="{{ request.static_url('starter3:static/app.css') }}"/>
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ name }}</h1>
+
+    <p>
+        Output: <code id="output">00000</code>
+        <button id="update" class="btn btn-primary">Update</button>
+    </p>
+</div>
+
+<script src="{{ request.static_url('starter3:static/jquery.js') }}"></script>
+<script src="{{ request.static_url('starter3:static/app.js') }}"></script>
+</body>
+</html>
