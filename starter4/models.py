@@ -20,6 +20,12 @@ DBSession = scoped_session(
 Base = declarative_base()
 
 
+class Root(Base):
+    __tablename__ = 'wikiroot'
+    uid = Column(Integer, primary_key=True)
+    title = Column(Text, unique=True)
+
+
 class Page(Base):
     __tablename__ = 'wikipages'
     uid = Column(Integer, primary_key=True)
@@ -27,6 +33,10 @@ class Page(Base):
     body = Column(Text)
 
 
-class Root(object):
-    def __init__(self, request):
-        pass
+def root_factory(request):
+    return DBSession.query(Root).one()
+
+
+def page_factory(request):
+    uid = int(request.matchdict['uid'])
+    return DBSession.query(Page).filter_by(uid=uid).one()

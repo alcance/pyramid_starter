@@ -10,6 +10,7 @@ from pyramid.paster import (
 
 from .models import (
     DBSession,
+    Root,
     Page,
     Base)
 
@@ -31,7 +32,9 @@ def main(argv=sys.argv):
     DBSession.configure(bind=engine)
     Base.metadata.create_all(engine)
     with transaction.manager:
-        model = Page(title='Root', body='<p>Root</p>')
-        DBSession.add(model)
+        root = Root(title='Site Root')
+        DBSession.add(root)
+        page = Page(title='Front Page', body='<p>Front page</p>')
+        DBSession.add(page)
         DBSession.add(Page(title='First Page',
                            body='<em>first page</em>'))

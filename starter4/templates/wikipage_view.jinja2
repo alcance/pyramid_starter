@@ -4,12 +4,12 @@
     <a href="{{ request.route_url('wiki_view') }}">
         Up
     </a> |
-    <a href="{{ request.route_url('wikipage_edit', uid=page.uid) }}">
+    <a href="{{ request.route_url('wikipage_edit', uid=context.uid) }}">
         Edit
     </a>
 
-    <h1>{{ page.title }}</h1>
+    <h1>{{ context.title }}</h1>
 
-    <p>{{ page.body | safe }}</p>
+    <p>{{ context.body | safe }}</p>
 
 {% endblock content %}
