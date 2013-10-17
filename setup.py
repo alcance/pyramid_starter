@@ -5,6 +5,9 @@ requires = [
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
     'deform',
+    'sqlalchemy',
+    'pyramid_tm',
+    'zope.sqlalchemy',
     'nose',
     'WebTest'
 ]
@@ -20,4 +23,6 @@ setup(
       starter2 = starter2:main
       starter3 = starter3:main
       starter4 = starter4:main
+      [console_scripts]
+      initialize_starter_db = starter4.initialize_db:main
       """)

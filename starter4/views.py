@@ -4,11 +4,9 @@ import deform.widget
 from pyramid.httpexceptions import HTTPFound
 from pyramid.view import view_config
 
-pages = {
-    '100': dict(uid='100', title='Page 100', body='<em>100</em>'),
-    '101': dict(uid='101', title='Page 101', body='<em>101</em>'),
-    '102': dict(uid='102', title='Page 102', body='<em>102</em>')
-}
+from .models import (
+    DBSession,
+    Page)
 
 
 class WikiPage(colander.MappingSchema):
@@ -32,6 +30,7 @@ class WikiViews(object):
     @view_config(route_name='wiki_view',
                  renderer='templates/wiki_view.jinja2')
     def wiki_view(self):
+        pages = DBSession.query(Page).order_by(Page.title)
         return dict(pages=pages.values())
 
     @view_config(route_name='wikipage_add',
@@ -48,13 +47,13 @@ class WikiViews(object):
                 return dict(form=e.render())
 
             # Form is valid, make a new identifier and add to list
-            last_uid = int(sorted(pages.keys())[-1])
-            new_uid = str(last_uid + 1)
-            pages[new_uid] = dict(
-                uid=new_uid, title=appstruct['title'],
-                body=appstruct['body']
-            )
+            new_title = appstruct['title']
+            new_body = appstruct['body']
+            DBSession.add(Page(title=new_title, body=new_body))
 
+            # Get the new ID and redirect
+            page = DBSession.query(Page).filter_by(title=new_title).one()
+            new_uid = page.uid
             # Now visit new page
             url = self.request.route_url('wikipage_view', uid=new_uid)
             return HTTPFound(url)
